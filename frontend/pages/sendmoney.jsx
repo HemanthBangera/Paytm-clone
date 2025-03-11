@@ -10,9 +10,11 @@ export const SendMoney = () => {
     const [amount,setAmount] = useState(0);
     const [message, setMessage] = useState(null);
     const [isError, setIsError] = useState(false);
+    const API_URL = import.meta.env.VITE_API_URL;
+
     const navigate = useNavigate();
     const handletransaction = async ()=>{
-        try {const response = await axios.post("http://localhost:3000/api/vi/account/transfer",
+        try {const response = await axios.post(`${API_URL}/api/vi/account/transfer`,
             {
                 to: id,
                 amount: amount

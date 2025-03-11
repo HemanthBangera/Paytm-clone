@@ -13,9 +13,11 @@ export const Signin = () => {
     const [errorMessage,setErrorMessage] = useState("");
     const [showpopup,setShowpopup] = useState(false);
     const navigate = useNavigate();
+    const API_URL = import.meta.env.VITE_API_URL;
+
 
     const handlesignin = async () => {
-        try {const response = await axios.post("http://localhost:3000/api/vi/user/signin",{
+        try {const response = await axios.post(`${API_URL}/api/vi/user/signin`,{
             username,
             password
         })
@@ -44,7 +46,7 @@ export const Signin = () => {
                     <div className="pt-4">
                         <Button onClick={handlesignin}  label="Sign in"/>
                     </div>
-                    <BottomWarning label="Don't have an account?" buttontext="Sign up" to={"/signup"}/>
+                    <BottomWarning label="Don't have an account?" buttontext="Sign up" to={"/"}/>
                 </div>
             </div>
             {showpopup && (

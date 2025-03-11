@@ -15,9 +15,11 @@ export const Signup = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const [showpopup,setShowpopup] = useState(false);
     const navigate = useNavigate();
+    const API_URL = import.meta.env.VITE_API_URL;
+
 
     const handleSignup = async ()=>{
-        try {const response = await axios.post("http://localhost:3000/api/vi/user/signup",{
+        try {const response = await axios.post(`${API_URL}/api/vi/user/signup`,{
             username,
             firstname,
             lastname,
