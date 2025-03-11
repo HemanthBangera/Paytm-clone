@@ -7,8 +7,10 @@ import { useNavigate } from "react-router-dom";
 export const User = () => {
     const [users,setUsers] = useState([]);
     const [filter,setFilter] = useState("");
+    const API_URL = import.meta.env.VITE_API_URL;
+
     useEffect(()=>{
-        axios.get("http://localhost:3000/api/vi/user/bulk?filter="+filter)
+        axios.get(`${API_URL}/api/vi/user/bulk?filter=`+filter)
         .then(response => {
             setUsers(response.data.user)
         })
